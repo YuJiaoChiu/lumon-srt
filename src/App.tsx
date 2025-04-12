@@ -6,7 +6,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5002/api';
 
 // Default PIN code for dictionary modifications
-const DEFAULT_PIN = '1234';
+const DEFAULT_PIN = '1324';
 
 // Interfaces for type safety
 interface Statistics {

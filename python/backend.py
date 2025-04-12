@@ -42,7 +42,7 @@ MAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB max upload size
 FILE_CLEANUP_THRESHOLD = 3600  # Clean up files older than 1 hour
 
 # Security settings
-DICTIONARY_PIN = "1234"  # Default PIN for dictionary modifications
+DICTIONARY_PIN = "1324"  # Default PIN for dictionary modifications
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
