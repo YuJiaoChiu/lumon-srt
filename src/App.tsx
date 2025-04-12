@@ -53,7 +53,7 @@ function App() {
   const [termModalType, setTermModalType] = useState<'correction' | 'protection'>('correction');
   const [termModalTerm, setTermModalTerm] = useState('');
   const [termModalValue, setTermModalValue] = useState('');
-  const [termModalPin, setTermModalPin] = useState(DEFAULT_PIN);
+  const [termModalPin, setTermModalPin] = useState('');
   const [termSearchQuery, setTermSearchQuery] = useState('');
   const [termSearchResults, setTermSearchResults] = useState<{correction: Record<string, string>, protection: Record<string, string>}>({correction: {}, protection: {}});
   const [termSearchLoading, setTermSearchLoading] = useState(false);
@@ -360,14 +360,21 @@ function App() {
       // Parse correction terms into dictionary
       const correctionDict = parseCorrectionsToDict(correctionTerms);
 
+      // Ask for PIN code before saving
+      const pin = prompt('Please enter PIN code to save dictionaries:');
+      if (!pin) {
+        setError('PIN code is required');
+        return;
+      }
+
       // Save dictionaries to API
       await Promise.all([
         axios.post(`${API_URL}/dictionaries/protection`, {
-          pin: DEFAULT_PIN,
+          pin,
           dictionary: protectionDict
         }),
         axios.post(`${API_URL}/dictionaries/correction`, {
-          pin: DEFAULT_PIN,
+          pin,
           dictionary: correctionDict
         })
       ]);
@@ -453,8 +460,15 @@ function App() {
       setDictionarySaving(true);
       setError('');
 
+      // Ask for PIN code before deleting
+      const pin = prompt('Please enter PIN code to delete this term:');
+      if (!pin) {
+        setError('PIN code is required');
+        return;
+      }
+
       const response = await axios.post(`${API_URL}/dictionaries/update-term`, {
-        pin: DEFAULT_PIN,
+        pin,
         type,
         term,
         action: 'delete'
