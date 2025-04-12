@@ -43,6 +43,12 @@ FILE_CLEANUP_THRESHOLD = 3600  # Clean up files older than 1 hour
 
 # Security settings
 DICTIONARY_PIN = "1324"  # Default PIN for dictionary modifications
+MAX_PIN_ATTEMPTS = 5  # Maximum number of failed PIN attempts before temporary lockout
+PIN_LOCKOUT_TIME = 300  # Lockout time in seconds (5 minutes)
+
+# Track PIN attempts
+pin_attempts = {}
+pin_lockouts = {}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
@@ -85,6 +91,45 @@ def generate_unique_filename(original_filename):
     """Generate a unique filename to prevent collisions."""
     base, ext = os.path.splitext(original_filename)
     return f"{base}_{uuid.uuid4().hex[:8]}{ext}"
+
+def check_pin(ip_address, pin):
+    """Check PIN code and track attempts."""
+    # Check if IP is locked out
+    if ip_address in pin_lockouts:
+        lockout_time = pin_lockouts[ip_address]
+        if time.time() - lockout_time < PIN_LOCKOUT_TIME:
+            # Still in lockout period
+            remaining = int(PIN_LOCKOUT_TIME - (time.time() - lockout_time))
+            return False, f"Too many failed attempts. Please try again in {remaining} seconds."
+        else:
+            # Lockout period expired, remove lockout
+            del pin_lockouts[ip_address]
+            if ip_address in pin_attempts:
+                del pin_attempts[ip_address]
+
+    # Check PIN
+    if pin != DICTIONARY_PIN:
+        # Track failed attempt
+        if ip_address not in pin_attempts:
+            pin_attempts[ip_address] = 1
+        else:
+            pin_attempts[ip_address] += 1
+
+        # Check if max attempts reached
+        if pin_attempts[ip_address] >= MAX_PIN_ATTEMPTS:
+            # Lock out the IP
+            pin_lockouts[ip_address] = time.time()
+            del pin_attempts[ip_address]
+            return False, f"Too many failed attempts. Please try again in {PIN_LOCKOUT_TIME} seconds."
+
+        remaining_attempts = MAX_PIN_ATTEMPTS - pin_attempts[ip_address]
+        return False, f"Invalid PIN code. {remaining_attempts} attempts remaining."
+
+    # Correct PIN, reset attempts
+    if ip_address in pin_attempts:
+        del pin_attempts[ip_address]
+
+    return True, "PIN verified successfully."
 
 # Task processing
 def process_file_task(task_id, file_path, output_path):
@@ -225,8 +270,10 @@ def protection_dictionary():
         try:
             # Verify PIN code
             pin = request.json.get('pin')
-            if pin != DICTIONARY_PIN:
-                return jsonify({"error": "Invalid PIN code"}), 403
+            ip_address = request.remote_addr
+            pin_valid, message = check_pin(ip_address, pin)
+            if not pin_valid:
+                return jsonify({"error": message}), 403
 
             protection_dict = request.json.get('dictionary', {})
             if not isinstance(protection_dict, dict):
@@ -258,8 +305,10 @@ def correction_dictionary():
         try:
             # Verify PIN code
             pin = request.json.get('pin')
-            if pin != DICTIONARY_PIN:
-                return jsonify({"error": "Invalid PIN code"}), 403
+            ip_address = request.remote_addr
+            pin_valid, message = check_pin(ip_address, pin)
+            if not pin_valid:
+                return jsonify({"error": message}), 403
 
             correction_dict = request.json.get('dictionary', {})
             if not isinstance(correction_dict, dict):
@@ -444,8 +493,10 @@ def update_dictionary_term():
     try:
         # Verify PIN code
         pin = request.json.get('pin')
-        if pin != DICTIONARY_PIN:
-            return jsonify({"error": "Invalid PIN code"}), 403
+        ip_address = request.remote_addr
+        pin_valid, message = check_pin(ip_address, pin)
+        if not pin_valid:
+            return jsonify({"error": message}), 403
 
         # Get parameters
         dict_type = request.json.get('type')  # 'correction' or 'protection'
@@ -535,6 +586,35 @@ def search_dictionary():
         })
     except Exception as e:
         logger.error(f"Error searching dictionaries: {str(e)}")
+        return jsonify({"error": "Invalid request"}), 400
+
+@app.route('/api/security/reset-pin-lockout', methods=['POST'])
+@limiter.exempt
+def reset_pin_lockout():
+    """Reset PIN lockout for an IP address (admin only)."""
+    try:
+        # Verify admin PIN code
+        pin = request.json.get('admin_pin')
+        if pin != DICTIONARY_PIN:
+            return jsonify({"error": "Invalid admin PIN"}), 403
+
+        # Get IP to reset
+        ip_address = request.json.get('ip_address')
+        if not ip_address:
+            return jsonify({"error": "Missing IP address"}), 400
+
+        # Reset lockout
+        if ip_address in pin_lockouts:
+            del pin_lockouts[ip_address]
+        if ip_address in pin_attempts:
+            del pin_attempts[ip_address]
+
+        return jsonify({
+            "status": "success",
+            "message": f"PIN lockout reset for {ip_address}"
+        })
+    except Exception as e:
+        logger.error(f"Error resetting PIN lockout: {str(e)}")
         return jsonify({"error": "Invalid request"}), 400
 
 @app.route('/api/download-multiple', methods=['POST'])
