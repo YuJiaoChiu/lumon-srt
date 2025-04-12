@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字幕术语修正系统</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <header class="mb-4">
+            <h1 class="text-center">字幕术语修正系统</h1>
+            <p class="text-center text-muted">上传SRT文件，自动修正术语</p>
+        </header>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <!-- File Upload Section -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-upload me-2"></i>文件上传</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file-input" class="form-label">选择SRT文件</label>
+                                <input type="file" class="form-control" id="file-input" name="file" accept=".srt" required>
+                                <div class="form-text">只支持SRT格式的字幕文件</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="upload-btn">
+                                <i class="bi bi-cloud-upload me-2"></i>上传并处理
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Progress Section (initially hidden) -->
+                <div class="card mb-4" id="progress-section" style="display: none;">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-hourglass-split me-2"></i>处理进度</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="processing-file-name" class="mb-2"></p>
+                        <div class="progress mb-3">
+                            <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <p id="progress-status" class="text-center">准备处理...</p>
+                    </div>
+                </div>
+
+                <!-- Results Section (initially hidden) -->
+                <div class="card mb-4" id="results-section" style="display: none;">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-check-circle me-2"></i>处理结果</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">处理完成!</h4>
+                            <p id="result-summary"></p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a id="download-link" href="#" class="btn btn-success">
+                                <i class="bi bi-download me-2"></i>下载修正后的文件
+                            </a>
+                        </div>
+                        <div class="mt-4">
+                            <h5>替换详情:</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>原文</th>
+                                            <th>修正</th>
+                                            <th>次数</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="replacements-table">
+                                        <!-- Replacements will be added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dictionary Management Tabs -->
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="dictionary-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="correction-tab" data-bs-toggle="tab" data-bs-target="#correction-dict" type="button" role="tab" aria-controls="correction-dict" aria-selected="true">
+                                    <i class="bi bi-pencil-square me-2"></i>矫正词典
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="protection-tab" data-bs-toggle="tab" data-bs-target="#protection-dict" type="button" role="tab" aria-controls="protection-dict" aria-selected="false">
+                                    <i class="bi bi-shield-check me-2"></i>保护词典
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="dictionary-content">
+                            <!-- Correction Dictionary Tab -->
+                            <div class="tab-pane fade show active" id="correction-dict" role="tabpanel" aria-labelledby="correction-tab">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5>矫正词典</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-primary" id="add-correction-btn">
+                                            <i class="bi bi-plus-circle me-1"></i>添加条目
+                                        </button>
+                                        <button class="btn btn-sm btn-success" id="save-correction-btn">
+                                            <i class="bi bi-save me-1"></i>保存词典
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>错误词</th>
+                                                <th>正确词</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="correction-table">
+                                            <!-- Correction entries will be added here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <!-- Protection Dictionary Tab -->
+                            <div class="tab-pane fade" id="protection-dict" role="tabpanel" aria-labelledby="protection-tab">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5>保护词典</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-primary" id="add-protection-btn">
+                                            <i class="bi bi-plus-circle me-1"></i>添加条目
+                                        </button>
+                                        <button class="btn btn-sm btn-success" id="save-protection-btn">
+                                            <i class="bi bi-save me-1"></i>保存词典
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>保护词</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="protection-table">
+                                            <!-- Protection entries will be added here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5 mb-3 text-center text-muted">
+            <p>字幕术语修正系统 &copy; 2023</p>
+        </footer>
+    </div>
+
+    <!-- Add Entry Modal for Correction Dictionary -->
+    <div class="modal fade" id="correction-modal" tabindex="-1" aria-labelledby="correction-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="correction-modal-label">添加矫正条目</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="correction-form">
+                        <div class="mb-3">
+                            <label for="wrong-term" class="form-label">错误词</label>
+                            <input type="text" class="form-control" id="wrong-term" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correct-term" class="form-label">正确词</label>
+                            <input type="text" class="form-control" id="correct-term">
+                            <div class="form-text">留空表示删除该词</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="save-correction-entry-btn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Entry Modal for Protection Dictionary -->
+    <div class="modal fade" id="protection-modal" tabindex="-1" aria-labelledby="protection-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="protection-modal-label">添加保护条目</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="protection-form">
+                        <div class="mb-3">
+                            <label for="protection-term" class="form-label">保护词</label>
+                            <input type="text" class="form-control" id="protection-term" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="save-protection-entry-btn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="error-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="error-modal-label">错误</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="error-message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
