@@ -1,0 +1,27 @@
+services:
+  lumon-srt:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./backend:/app/backend
+      - ./deploy/dictionaries:/app/backend/dictionaries
+      - ./deploy/uploads:/app/backend/uploads
+    environment:
+      - PYTHONPATH=/app
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+      - ./deploy/nginx/conf.d:/etc/nginx/conf.d
+      - ./deploy/nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - lumon-srt
+    restart: always

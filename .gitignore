@@ -1,0 +1,56 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+pnpm-debug.log*
+lerna-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Distribution / packaging
+dist/
+dist-ssr/
+build/
+*.local
+
+# IDE files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Vite
+.vite/
+
+# Uploaded files
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Dictionary files (keep the structure but not the content)
+backend/dictionaries/*
+!backend/dictionaries/.gitkeep

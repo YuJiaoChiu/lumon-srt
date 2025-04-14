@@ -1,0 +1,212 @@
+1
+00:00:00,440 --> 00:00:03,580
+ I think I'm going to use this one here in the middle.
+
+2
+00:00:04,400 --> 00:00:05,860
+ It's the one that looks the best.
+
+3
+00:00:07,140 --> 00:00:10,720
+ So let's try to use a backdrop. That's very useful.
+
+4
+00:00:12,040 --> 00:00:17,240
+ I'm honestly going to make a quick, simple setup in a studio setting
+
+5
+00:00:17,240 --> 00:00:21,540
+ because an interior is going to be probably too much for these chairs.
+
+6
+00:00:22,540 --> 00:00:25,160
+ We could, but I don't think it's worth it.
+
+7
+00:00:25,340 --> 00:00:28,260
+ So for example, as you can see, I was simulating in the normal,
+
+8
+00:00:28,260 --> 00:00:29,940
+ regular scale from Cinema 4D.
+
+9
+00:00:30,420 --> 00:00:32,340
+ And now that I'm putting it in the backdrop,
+
+10
+00:00:32,479 --> 00:00:35,260
+ I'm going to actually scale it so it makes sense in real life.
+
+11
+00:00:35,860 --> 00:00:38,440
+ So right now, our main cube is 2 meters,
+
+12
+00:00:38,600 --> 00:00:45,500
+ and I want the piece to be roughly 8 centimeters tops in every way.
+
+13
+00:00:45,700 --> 00:00:49,140
+ So, well, actually, I'm too good. I already made it.
+
+14
+00:00:49,340 --> 00:00:52,380
+ Yeah, let's try to put some...
+
+15
+00:00:52,380 --> 00:00:55,420
+ It's going to be a little bit hard to show
+
+16
+00:00:56,580 --> 00:01:00,000
+ because the shape has too much integral details.
+
+17
+00:01:01,940 --> 00:01:05,080
+ So maybe something that can work.
+
+18
+00:01:06,020 --> 00:01:08,900
+ It's like all the fun stuff is happening here.
+
+19
+00:01:08,980 --> 00:01:11,180
+ So if you do a frontal, it's going to be cool,
+
+20
+00:01:11,300 --> 00:01:13,100
+ but it looks a little bit like an ass too.
+
+21
+00:01:13,660 --> 00:01:15,740
+ So let's try and work with this.
+
+22
+00:01:28,950 --> 00:01:34,530
+ It's hard because it looks a little bit big in terms of scale.
+
+23
+00:01:48,590 --> 00:01:49,950
+ Make this a disk.
+
+24
+00:01:50,750 --> 00:01:54,810
+ I want to create a really flat view.
+
+25
+00:01:54,930 --> 00:01:59,470
+ Not flat, but a strong image of this shape that we have.
+
+26
+00:02:07,560 --> 00:02:10,259
+ Let's put some material.
+
+27
+00:02:11,880 --> 00:02:15,840
+ Honestly, right away, I imagined this motherfucker to be super glossy.
+
+28
+00:02:17,770 --> 00:02:19,050
+ Make it pink.
+
+29
+00:02:22,480 --> 00:02:24,340
+ Let's actually make it super soft,
+
+30
+00:02:24,560 --> 00:02:27,660
+ and then we are going to add a coat layer to it,
+
+31
+00:02:28,060 --> 00:02:29,480
+ so it reflects more.
+
+32
+00:02:31,510 --> 00:02:34,810
+ Now we actually duplicate the light and give it a little bit more.
+
+33
+00:02:36,690 --> 00:02:37,550
+ So we have that.
+
+34
+00:02:39,150 --> 00:02:41,370
+ Maybe we can...
+
+35
+00:02:42,720 --> 00:02:43,720
+ It's looking great.
+
+36
+00:02:44,840 --> 00:02:46,980
+ The shape itself is super weird.
+
+37
+00:02:48,060 --> 00:02:50,380
+ I will admit that it looks like a chewing gum.
+
+38
+00:02:50,380 --> 00:02:51,440
+ Chewing gum, sorry.
+
+39
+00:02:55,460 --> 00:02:58,160
+ Definitely we need to get something like this kind of angle.
+
+40
+00:02:58,700 --> 00:03:01,820
+ But we can try and make it super wide.
+
+41
+00:03:02,840 --> 00:03:05,860
+ I think that's going to be beneficial for this shape.
+
+42
+00:03:08,760 --> 00:03:11,540
+ It looks more underground in a way.
+
+43
+00:03:16,440 --> 00:03:19,340
+ You can make it feel really huge this way.
+
+44
+00:03:29,650 --> 00:03:31,650
+ I think this is the winning angle.
+
+45
+00:03:32,730 --> 00:03:36,430
+ Maybe we can give a little color to the ground.
+
+46
+00:05:52,220 --> 00:05:55,820
+ So this is the weird collection of furniture that we created.
+
+47
+00:05:56,360 --> 00:05:59,100
+ I also have a sofa laying around. Well, a sofa.
+
+48
+00:05:59,320 --> 00:06:00,420
+ Whatever the fuck this is.
+
+49
+00:06:01,300 --> 00:06:02,500
+ Which is also looking great.
+
+50
+00:06:03,020 --> 00:06:05,960
+ But I couldn't fit them all in frame.
+
+51
+00:06:07,040 --> 00:06:08,380
+ So I just removed it.
+
+52
+00:06:08,900 --> 00:06:11,360
+ Hope you guys enjoyed. Let me know if you have any questions.
+
+53
+00:06:11,860 --> 00:06:13,500
+ And I'll see you guys in the next one. Bye bye.
+

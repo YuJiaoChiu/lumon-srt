@@ -1,0 +1,420 @@
+1
+00:00:00,000 --> 00:00:07,000
+So for example this is another thing that we can do. We have these two cubes that we have inside a boronoronefractor.
+
+2
+00:00:07,000 --> 00:00:16,000
+I think in this case I'm going to 细分 them so they are going to look a little bit more organic 右 away which is actually quite good.
+
+3
+00:00:16,000 --> 00:00:25,000
+And you can... this is our way of making like a 程序 looking stuff.
+
+4
+00:00:25,000 --> 00:00:30,000
+Let's see if I remember... no this is not...
+
+5
+00:00:30,000 --> 00:00:36,000
+Totally messed 上 but well who cares.
+
+6
+00:00:36,000 --> 00:00:43,000
+And then I put this inside a 体积网格 so everything is part of the same 形状.
+
+7
+00:00:43,000 --> 00:00:49,000
+And this is the remeshed 版本 is what I'm going to 用于 a 模拟.
+
+8
+00:00:49,000 --> 00:00:54,000
+And you can quickly get these weird looking things.
+
+9
+00:00:54,000 --> 00:00:58,000
+In this case the colliders and a half a half a lot of them.
+
+10
+00:00:58,000 --> 00:01:04,000
+In this case I think I will benefit from not having this one here like that.
+
+11
+00:01:04,000 --> 00:01:07,000
+So let's see...
+
+12
+00:01:07,000 --> 00:01:17,000
+Some moment in 边框 22 when it packs 上.
+
+13
+00:01:17,000 --> 00:01:22,000
+I don't know maybe I don't want this 立方体 右 now.
+
+14
+00:01:22,000 --> 00:01:32,000
+I want it to 扩大 as much as it can at least in the 边缘.
+
+15
+00:01:32,000 --> 00:01:37,000
+Yeah so I increase this nicely looking armchair.
+
+16
+00:01:37,000 --> 00:01:42,000
+Of course you have to have a big living room in 次序 to put this chair but well.
+
+17
+00:01:42,000 --> 00:01:46,000
+And also let's get rid of...
+
+18
+00:01:46,000 --> 00:01:52,000
+I want this one for the 上 part.
+
+19
+00:01:52,000 --> 00:01:55,000
+I don't want it for the 下 part.
+
+20
+00:01:55,000 --> 00:01:56,000
+Yeah.
+
+21
+00:01:56,000 --> 00:01:57,000
+It's looking really nice.
+
+22
+00:01:57,000 --> 00:02:01,000
+Reminds me to a typography inspired piece or something like that.
+
+23
+00:02:01,000 --> 00:02:02,000
+This is looking sick.
+
+24
+00:02:02,000 --> 00:02:03,000
+Let's scroll as steel.
+
+25
+00:02:03,000 --> 00:02:14,000
+I say I still just because I'm used to working 动画 but yeah this is looking dope.
+
+26
+00:02:14,000 --> 00:02:19,000
+Cool thing as I 总是 say is that I can just go ahead and going to...
+
+27
+00:02:19,000 --> 00:02:22,000
+This is going to be B01.
+
+28
+00:02:22,000 --> 00:02:23,000
+Good.
+
+29
+00:02:23,000 --> 00:02:28,000
+I can't get that.
+
+30
+00:02:28,000 --> 00:02:34,000
+I don't want to 移动 them that's why I'm not moving that to the 右 or the 左.
+
+31
+00:02:34,000 --> 00:02:41,000
+But the cool thing now is that 与 the boronine 破碎/分裂 I have unlimited variations of these chairs.
+
+32
+00:02:41,000 --> 00:02:46,000
+So this is actually quite 程序.
+
+33
+00:02:46,000 --> 00:02:48,000
+See I have another one.
+
+34
+00:02:56,000 --> 00:02:58,000
+Another one.
+
+35
+00:02:58,000 --> 00:03:10,000
+And yeah I honestly love this kind of workflows because it's basically you have 无限 ways of generating 新建 and 新建.
+
+36
+00:03:10,000 --> 00:03:11,000
+Generating 新建 资源.
+
+37
+00:03:11,000 --> 00:03:14,000
+For example we want to simplify the 形状 a little bit.
+
+38
+00:03:14,000 --> 00:03:15,000
+We can do that.
+
+39
+00:03:15,000 --> 00:03:19,000
+These 形状 by itself are really quite interesting though.
+
+40
+00:03:19,000 --> 00:03:26,000
+So let's actually try to 移除 that 碰撞体 too.
+
+41
+00:03:26,000 --> 00:03:28,000
+I want it to be full organic.
+
+42
+00:03:28,000 --> 00:03:32,000
+Yeah it's way too abstract I guess.
+
+43
+00:03:32,000 --> 00:03:37,000
+Still not bad.
+
+44
+00:03:37,000 --> 00:03:40,000
+But what you can do.
+
+45
+00:03:40,000 --> 00:03:43,000
+It's something that I normally do too.
+
+46
+00:03:43,000 --> 00:03:46,000
+Let me get this blackboard here.
+
+47
+00:03:46,000 --> 00:03:50,000
+Definitely make it smaller.
+
+48
+00:03:50,000 --> 00:03:54,000
+What we can do is actually just 动画 it in white.
+
+49
+00:03:54,000 --> 00:03:55,000
+So.
+
+50
+00:03:55,000 --> 00:03:58,000
+Here.
+
+51
+00:03:58,000 --> 00:03:59,000
+Here.
+
+52
+00:03:59,000 --> 00:04:13,000
+So this way we can make it grow.
+
+53
+00:04:13,000 --> 00:04:17,000
+And then flatten it a little bit whenever we want.
+
+54
+00:04:17,000 --> 00:04:21,000
+It creates like this super cozy.
+
+55
+00:04:21,000 --> 00:04:26,000
+It's a weird looking thing too.
+
+56
+00:04:26,000 --> 00:04:28,000
+And let's make more variations.
+
+57
+00:04:28,000 --> 00:04:29,000
+That's.
+
+58
+00:04:29,000 --> 00:04:30,000
+I love this 方法.
+
+59
+00:04:30,000 --> 00:04:35,000
+Confia as fact.
+
+60
+00:04:35,000 --> 00:04:37,000
+Let's also try to make a 新建 版本.
+
+61
+00:04:37,000 --> 00:04:40,000
+I'm going to try something different.
+
+62
+00:04:40,000 --> 00:04:49,000
+And instead of using this as our 点 生成器.
+
+63
+00:04:49,000 --> 00:04:50,000
+Well.
+
+64
+00:04:50,000 --> 00:04:54,000
+右 away we can actually just 使用 what we had.
+
+65
+00:04:54,000 --> 00:04:57,000
+So for our 法线 looking sofa.
+
+66
+00:04:57,000 --> 00:04:59,000
+Looking cool anyway.
+
+67
+00:04:59,000 --> 00:05:01,000
+But that's not what I wanted to make.
+
+68
+00:05:01,000 --> 00:05:02,000
+Let's quickly make.
+
+69
+00:05:02,000 --> 00:05:07,000
+I want to 使用 the 矩阵 as a 源 for our.
+
+70
+00:05:07,000 --> 00:05:10,000
+For our 形状.
+
+71
+00:05:10,000 --> 00:05:13,000
+But let me actually.
+
+72
+00:05:13,000 --> 00:05:14,000
+I want to see what I'm doing.
+
+73
+00:05:14,000 --> 00:05:15,000
+Beca用于 you can see.
+
+74
+00:05:15,000 --> 00:05:19,000
+And the 矩阵 has a lot of clones.
+
+75
+00:05:19,000 --> 00:05:23,000
+And that's what's being used to 生成 our cuts.
+
+76
+00:05:23,000 --> 00:05:25,000
+And as you can see.
+
+77
+00:05:25,000 --> 00:05:27,000
+You can also have this.
+
+78
+00:05:27,000 --> 00:05:29,000
+Also 程序 way of creating.
+
+79
+00:05:29,000 --> 00:05:30,000
+Sorry.
+
+80
+00:05:30,000 --> 00:05:31,000
+Creating 几何.
+
+81
+00:05:31,000 --> 00:05:32,000
+But you can.
+
+82
+00:05:32,000 --> 00:05:34,000
+旋转 it.
+
+83
+00:05:34,000 --> 00:05:36,000
+You can space them out.
+
+84
+00:05:36,000 --> 00:05:38,000
+And it's creating a really.
+
+85
+00:05:38,000 --> 00:05:40,000
+Weird looking.
+
+86
+00:05:40,000 --> 00:05:41,000
+Look.
+
+87
+00:05:45,000 --> 00:05:46,000
+For example.
+
+88
+00:05:46,000 --> 00:05:48,000
+If you 添加 more and one more cuts.
+
+89
+00:05:48,000 --> 00:05:49,000
+You're only going to.
+
+90
+00:05:49,000 --> 00:05:51,000
+Need to make them.
+
+91
+00:05:51,000 --> 00:05:53,000
+I think it's going to break 与 this.
+
+92
+00:05:53,000 --> 00:05:54,000
+Too many.
+
+93
+00:05:54,000 --> 00:05:55,000
+And it will probably.
+
+94
+00:05:55,000 --> 00:05:56,000
+Don't look that good.
+
+95
+00:05:56,000 --> 00:05:57,000
+I think.
+
+96
+00:05:57,000 --> 00:05:59,000
+I think this stuff.
+
+97
+00:05:59,000 --> 00:06:01,000
+Really benefits from being 简单.
+
+98
+00:06:03,000 --> 00:06:04,000
+Yeah.
+
+99
+00:06:04,000 --> 00:06:06,000
+But you can 添加 more.
+
+100
+00:06:06,000 --> 00:06:08,000
+More 细节 to the simulations.
+
+101
+00:06:08,000 --> 00:06:09,000
+In this way.
+
+102
+00:06:09,000 --> 00:06:10,000
+It's looking.
+
+103
+00:06:10,000 --> 00:06:12,000
+Very cool too.
+
+104
+00:06:12,000 --> 00:06:15,000
+So let's put some 灯光 on.
+
+105
+00:06:15,000 --> 00:06:16,000
+One of them.
+

@@ -1,0 +1,15 @@
+[Unit]
+Description=Lumon SRT Backend
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/lumon-srt/backend
+ExecStart=/opt/lumon-srt/venv/bin/gunicorn --workers 4 --bind 127.0.0.1:5002 wsgi:app
+Restart=always
+Environment="PATH=/opt/lumon-srt/venv/bin"
+Environment="PYTHONPATH=/opt/lumon-srt"
+
+[Install]
+WantedBy=multi-user.target

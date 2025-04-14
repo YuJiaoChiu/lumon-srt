@@ -1,0 +1,22 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-04-14 12:29:42 CST; 2h 47min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 49570 (dockerd)
+      Tasks: 10
+     Memory: 108.7M
+        CPU: 1min 4.256s
+     CGroup: /system.slice/docker.service
+             └─49570 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Apr 14 12:29:42 lavm-877b89p5as systemd[1]: Started Docker Application Container Engine.
+Apr 14 12:29:42 lavm-877b89p5as dockerd[49570]: time="2025-04-14T12:29:42.040426048+08:00" level=info msg="API listen on /run/docker.sock"
+Apr 14 13:37:28 lavm-877b89p5as dockerd[49570]: time="2025-04-14T13:37:28.702492453+08:00" level=info msg="Layer sha256:11197e35a2c998f9995c4f7d0bf6f6294e6834b772012666292a3444790250da cleaned up"
+Apr 14 13:37:28 lavm-877b89p5as dockerd[49570]: time="2025-04-14T13:37:28.791074804+08:00" level=error msg=/moby.buildkit.v1.Control/Solve error="rpc error: code = Canceled desc = context canceled" spanID=bd78a4368dca4cdf traceID=ac7100af51d5a205ce8e59db354ef9c4
+Apr 14 13:37:28 lavm-877b89p5as dockerd[49570]: time="2025-04-14T13:37:28.830563843+08:00" level=info msg="Layer sha256:ea680fbff095473bb8a6c867938d6d851e11ef0c177fce983ccc83440172bd72 cleaned up"
+Apr 14 13:42:42 lavm-877b89p5as dockerd[49570]: time="2025-04-14T13:42:42.169945239+08:00" level=error msg=/moby.buildkit.v1.Control/Solve error="rpc error: code = Unknown desc = failed to compute cache key: failed to calculate checksum of ref 975c2048-5378-4783-ab6a-9a8d87b137fd::yozixp6e075g1l34eo35zp6da: \"/backend\": not found" spanID=cda38dd0894e0fb8 traceID=52534c45d8dc6772da4ede41d37253e4
+Apr 14 13:45:07 lavm-877b89p5as dockerd[49570]: 2025/04/14 13:45:07 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Apr 14 13:45:07 lavm-877b89p5as dockerd[49570]: 2025/04/14 13:45:07 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Apr 14 15:12:03 lavm-877b89p5as dockerd[49570]: time="2025-04-14T15:12:03.744689087+08:00" level=warning msg="failed to read oom_kill event" error="open /sys/fs/cgroup/system.slice:docker:1n781end3fs32sf8id0271zsm/memory.events: no such file or directory" span="[4/9] RUN pip install --no-cache-dir -r requirements.txt" spanID=5c012799632ca81a traceID=232ed3afffaf6b8d571181561d6a1980
+Apr 14 15:12:03 lavm-877b89p5as dockerd[49570]: time="2025-04-14T15:12:03.959106012+08:00" level=error msg=/moby.buildkit.v1.Control/Solve error="rpc error: code = Unknown desc = process \"/bin/sh -c pip install --no-cache-dir -r requirements.txt\" did not complete successfully: exit code: 2" spanID=21ed18bad0849764 traceID=232ed3afffaf6b8d571181561d6a1980
